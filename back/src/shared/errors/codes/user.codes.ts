@@ -1,0 +1,4 @@
+export const USER_ERROR_CODES = {
+    NOT_FOUND: 'USER.NOT_FOUND',
+    ALREADY_EXISTS: 'USER.ALREADY_EXISTS',
+} as const;

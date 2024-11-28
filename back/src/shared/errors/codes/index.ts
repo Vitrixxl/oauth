@@ -8,6 +8,8 @@ export const ERROR_CODES = {
     SERVER: SERVER_ERROR_CODES,
 } as const;
 
+
+
 // Type pour les catégories (AUTH, USER, etc.)
 // Type pour une catégorie (AUTH, USER)
 type ErrorCodeCategory = typeof ERROR_CODES[keyof typeof ERROR_CODES];

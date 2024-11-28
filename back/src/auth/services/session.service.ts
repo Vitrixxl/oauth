@@ -5,14 +5,11 @@ import {
     PopulatedSession,
     Session,
 } from '../../db/tables/auth/sessions';
-import { HttpError } from '../../shared/errors';
-import { HTTP_STATUS_CODES } from '../../shared/errors/status-codes';
 
 const MIN_SESSION_DURATION = 2 * 24 * 60 * 60 * 1000;
 
 export interface SessTokenAndId {
-    token: string;
-    id: string;
+    token: string; id: string;
 }
 
 export class SessionService {
@@ -92,12 +89,5 @@ export class SessionService {
 
     static async revokeSessions(ids: string[]): Promise<boolean> {
         return await SessionRepository.revokeSessions(ids);
-    }
-    static async checkNullSession(session: Session | null) {
-        if (!session) {
-            throw new HttpError({
-                status: HTTP_STATUS_CODES.CLIENT_ERROR.UNAUTHORIZED,
-            });
-        }
     }
 }
